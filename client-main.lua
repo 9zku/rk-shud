@@ -6,6 +6,23 @@ PlayerStatus:start()
 VehicleState:start()
 Miscellaneous:start()
 
+CreateThread(function()
+    Wait(1000)
+    SendNUIMessage({
+        action = 'updateConfig',
+        data = {
+            framework = config.framework,
+            commands = config.commands,
+            features = {
+                hunger = config.framework ~= 'standalone',
+                thirst = config.framework ~= 'standalone',
+                armour = true,
+                stamina = true
+            }
+        }
+    })
+end)
+
 RegisterCommand(config.commands.hide, function()
     LocalPlayer.state.hudManualOverride = true
     SendNUIMessage({
