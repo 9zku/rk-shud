@@ -1,6 +1,6 @@
 local function versionChecker()
     local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0)
-    local url = 'https://raw.githubusercontent.com/rk3gaming/version_checks/main/rk-shud.txt'
+    local url = 'https://raw.githubusercontent.com/9zku/version_checks/main/rk-shud.txt'
 
     PerformHttpRequest(url, function(statusCode, response, headers)
         if statusCode == 200 and response then
@@ -16,5 +16,6 @@ local function versionChecker()
         end
     end, 'GET', '', {})
 end
+
 
 versionChecker()
