@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { PlayerStatus, VehicleState } from '../types'
+import type { PlayerStatus, VehicleState, Config } from '../types'
 
 defineProps<{
   status: PlayerStatus
   vehicleState: VehicleState
+  config: Config
 }>()
 </script>
 
@@ -24,13 +25,13 @@ defineProps<{
       </div>
     </Transition>
     
-    <div class="w-[28px] h-[28px] rounded-lg border border-gray-800/60 bg-gray-900/40 flex items-center justify-center overflow-hidden relative shadow-lg">
+    <div v-if="config.features.hunger" class="w-[28px] h-[28px] rounded-lg border border-gray-800/60 bg-gray-900/40 flex items-center justify-center overflow-hidden relative shadow-lg">
       <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-orange-500 to-orange-600 transition-all duration-300" :style="{ height: `${status.hunger}%` }"></div>
       <div class="absolute top-0 left-0 right-0 bg-gray-800/40 transition-all duration-300" :style="{ height: `${100 - status.hunger}%` }"></div>
       <img src="/img/hunger.svg" class="w-4 h-4 relative z-10 drop-shadow-sm" alt="hunger" />
     </div>
     
-    <div class="w-[28px] h-[28px] rounded-lg border border-gray-800/60 bg-gray-900/40 flex items-center justify-center overflow-hidden relative shadow-lg">
+    <div v-if="config.features.thirst" class="w-[28px] h-[28px] rounded-lg border border-gray-800/60 bg-gray-900/40 flex items-center justify-center overflow-hidden relative shadow-lg">
       <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-400 to-blue-500 transition-all duration-300" :style="{ height: `${status.thirst}%` }"></div>
       <div class="absolute top-0 left-0 right-0 bg-gray-800/40 transition-all duration-300" :style="{ height: `${100 - status.thirst}%` }"></div>
       <img src="/img/thirst.svg" class="w-4 h-4 relative z-10 drop-shadow-sm" alt="thirst" />
