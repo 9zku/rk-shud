@@ -12,7 +12,7 @@ While most of the backend is largely the same, a few key details distinguish the
 - **Dependencies:** [ox_lib](https://github.com/CommunityOx/ox_lib)
 
 ## **Links**
-- Preview: N/A
+- Preview: https://youtu.be/Tkz5yXfefAY?si=UFJzi7Co_9SYOUr6
 - Docs: N/A
 
 ## Installation & Setup
