@@ -17,7 +17,7 @@ shared_scripts ({
 })
 
 server_scripts ({
-    'server-version.lua'
+    'server-main.lua'
 })
 
 client_scripts ({
@@ -29,5 +29,6 @@ client_scripts ({
 dependencies ({
     'ox_lib',
 })
+
 
 lua54 ( 'true' )
