@@ -3,10 +3,12 @@ import { ref, onMounted } from 'vue'
 import { useNuiEvent } from './utils/useNui'
 import { usePlayerStatus } from './state/PlayerStatus'
 import { useVehicleState } from './state/VehicleState'
+import { useConfig } from './stores/config-main'
 import Hud from './components/Hud.vue'
 import CarHud from './components/Carhud.vue'
 const { status } = usePlayerStatus()
 const { vehicleState } = useVehicleState()
+const { config } = useConfig()
 const hideHuds = ref(false)
 
 useNuiEvent<{ hide: boolean }>('hideHuds', (data) => {
@@ -28,7 +30,7 @@ onMounted(() => {
       leave-from-class="opacity-100 transform translate-y-0"
       leave-to-class="opacity-0 transform translate-y-4"
     >
-      <Hud v-if="!hideHuds" :status="status" :vehicleState="vehicleState" />
+      <Hud v-if="!hideHuds" :status="status" :vehicleState="vehicleState" :config="config" />
     </Transition>
     <CarHud v-if="!hideHuds && vehicleState.isInVehicle" :vehicleState="vehicleState" />
   </div>
