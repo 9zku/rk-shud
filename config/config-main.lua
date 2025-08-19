@@ -9,7 +9,7 @@
 
 ---@type config
 config = {
-    ---@type "esx" | "ox" | "qb" | "qbx" Supported Frameworks: esx, ox, qb, qbx,
+    ---@type "esx" | "ox" | "qb" | "qbx" | "standalone" Supported Frameworks: esx, ox, qb, qbx, standalone
     framework = 'esx',
 
     ---@type "default" | "esx" | "qbx" | "qb" Options: 'default' (built-in logic), 'esx' (esx_cruisecontrol), 'qbx' (qbx_seatbelt), or 'qb' (qb-smallresources)
