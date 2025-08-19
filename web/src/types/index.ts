@@ -17,3 +17,5 @@ export interface VehicleState {
   areaName?: string
   direction?: string
 }
+
+export * from './config'
